@@ -192,5 +192,5 @@ def Next_page():
                     numResults=numResults)
 
 
-run(app=app, host='localhost', port=8080, debug=True)
-#run(app=app, host='0.0.0.0', port='80',debug=True)
+#run(app=app, host='localhost', port=8080, debug=True)
+run(app=app, host='0.0.0.0', port='80',debug=True)
