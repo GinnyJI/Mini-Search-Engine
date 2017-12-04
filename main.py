@@ -19,7 +19,7 @@ import enchant
 from time import clock
 from fuzzywuzzy import fuzz
 
-
+tpl_path = "~/Mini-Search_Engine/"
 
 # set up beaker-bottle session
 session_opts = {
@@ -78,7 +78,7 @@ def hello():
             keywords.append(word)
             index = chr(ord(index) + 3)
 
-    return template('anonymous_mode',keywords=keywords)
+    return template(tpl_path+'anonymous_mode',keywords=keywords)
 
 @post('/query')
 def query():
@@ -107,7 +107,7 @@ def query():
 
 
     if first_word==None:
-        return template('anonymous_mode',keywords=keywords)
+        return template(tpl_path+'anonymous_mode',keywords=keywords)
 
 
     check_if_words_are_in_database = []
@@ -134,7 +134,7 @@ def query():
 
     # if word not found, return not found
     if len(check_if_words_are_in_database) == 0:	
-        return template('result_not_found',counts=counts,keywords=keywords,sentence=sentence,first_word= sentence+ " Not Found")        
+        return template(tpl_path+'result_not_found',counts=counts,keywords=keywords,sentence=sentence,first_word= sentence+ " Not Found")        
 
     # get database 
     rank = anydbm.open('rank', 'c')
@@ -158,7 +158,7 @@ def query():
         next_url_list=url_list[5:]
         url_list=url_list[0:5]
     duration = clock() - start
-    return template('result',counts=counts,max_ratio=max_ratio,sug_word=sug_word, sentence=sentence,keywords=keywords,first_word=first_word,urls=url_list, summaries=summaries,titles=titles,duration=duration,numResults=numResults)
+    return template(tpl_path+'result',counts=counts,max_ratio=max_ratio,sug_word=sug_word, sentence=sentence,keywords=keywords,first_word=first_word,urls=url_list, summaries=summaries,titles=titles,duration=duration,numResults=numResults)
 
 @post('/Next')
 def Next_page():
@@ -183,12 +183,12 @@ def Next_page():
 
     # if no more results
     elif len(next_url_list)==0:
-	return template('no_more_result',keywords=keywords)
+	return template(tpl_path+'no_more_result',keywords=keywords)
     else:
     
 	url_list=next_url_list
 	next_url_list=[]
-    return template('result',urls=url_list,summaries=summaries,max_ratio=max_ratio,sug_word=sug_word,keywords=keywords,titles=titles,duration=duration,
+    return template(tpl_path+'result',urls=url_list,summaries=summaries,max_ratio=max_ratio,sug_word=sug_word,keywords=keywords,titles=titles,duration=duration,
                     numResults=numResults)
 
 
