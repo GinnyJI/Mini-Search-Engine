@@ -8,7 +8,7 @@
 <body>  
 	<br>
 	<br>
-	<a href="http://localhost:8080/" class="logo">
+	<a href="/" class="logo">
 		<div class="logo-triangle">
 			<div class="logo-triangle-container">
 			<span class="logo-site-name">Simple Search</span>

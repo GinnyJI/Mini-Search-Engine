@@ -6,9 +6,6 @@ from beaker.middleware import SessionMiddleware
 import beaker
 import collections
 import anydbm
-import crawler
-import pagerank
-import run_backend_test
 
 import requests
 from sumy.parsers.html import HtmlParser
@@ -31,10 +28,6 @@ session_opts = {
     'session.auto': True
 }
 app = SessionMiddleware(bottle.app(), session_opts)
-
-#AWS_URL = 'http://ec2-34-201-121-4.compute-1.amazonaws.com'
-AWS_URL = 'http://localhost:8080'
-REDIRECT_URI = AWS_URL + '/redirect'
 
 access_token = None
 next_url_list=[]

@@ -6,7 +6,7 @@
 
 <body>
 	
-	<a href="http://localhost:8080/" class="logo">
+	<a href="/" class="logo">
 		<span class="logo-site-name">Simple Search</span>
 	</a>
 
