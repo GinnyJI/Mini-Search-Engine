@@ -19,7 +19,7 @@ import enchant
 from time import clock
 from fuzzywuzzy import fuzz
 
-tpl_path = "~/Mini-Search_Engine/"
+tpl_path = ""
 
 # set up beaker-bottle session
 session_opts = {
